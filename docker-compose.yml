@@ -1,0 +1,32 @@
+#version: '3'
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: casedb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://user:password@db:5432/casedb
+      AWS_ACCESS_KEY_ID: ImVKtAOVJmNNgA4oz3vD
+      AWS_SECRET_ACCESS_KEY: baG4lacSk2TPTuxZKqOfcNFgCWixCvR0HLaYTLkl
+      AWS_REGION: http://127.0.0.1:9000
+      AWS_S3_BUCKET: nydems
+      JWT_SECRET: your-jwt-secret
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
