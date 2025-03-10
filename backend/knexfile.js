@@ -6,7 +6,8 @@ module.exports = {
       directory: './migrations',
       tableName: 'knex_migrations',
     },
-    seeds: {
-      directory: './seeds', // Optional, if you use seeds
+    pool: {
+      min: 2,
+      max: 10,
     },
-  };
+};
