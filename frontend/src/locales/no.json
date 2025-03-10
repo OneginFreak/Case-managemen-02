@@ -1,6 +1,10 @@
 {
-    "welcome": "Velkommen",
-    "cases": "Saker",
-    "upload": "Last opp",
-    "download": "Last ned"
-  }
+  "welcome": "Velkommen",
+  "cases": "Saker",
+  "upload": "Last opp",
+  "download": "Last ned",
+  "manage_users": "Administrer brukere",
+  "error": "Noe gikk galt",
+  "add_user": "Legg til bruker",
+  "remove_user": "Fjern bruker"
+}

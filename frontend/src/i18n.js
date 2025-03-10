@@ -4,11 +4,8 @@ import no from './locales/no.json';
 import en from './locales/en.json';
 
 i18n.use(initReactI18next).init({
-  resources: {
-    no: { translation: no },
-    en: { translation: en },
-  },
-  lng: 'no', // Default language: Norwegian
+  resources: { no: { translation: no }, en: { translation: en } },
+  lng: 'no',
   fallbackLng: 'no',
   interpolation: { escapeValue: false },
 });
