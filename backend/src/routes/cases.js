@@ -14,16 +14,16 @@ router.get('/', async (req, res) => {
 // Create case
 router.post('/', async (req, res) => {
   const { title, description } = req.body;
-  const [case] = await knex('cases')
+  const [newCase] = await knex('cases')  // Renamed 'case' to 'newCase'
     .insert({ title, description, created_by: req.user.id })
     .returning('*');
   await knex('user_case_access').insert({
     user_id: req.user.id,
-    case_id: case.id,
+    case_id: newCase.id,
     access_level: 'admin',
   });
-  await logAction(req.user.id, 'create_case', 'case', case.id, { title });
-  res.json(case);
+  await logAction(req.user.id, 'create_case', 'case', newCase.id, { title });
+  res.json(newCase);
 });
 
 // Add user to case

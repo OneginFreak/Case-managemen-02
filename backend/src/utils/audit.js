@@ -1,4 +1,5 @@
-const { knex } = require('../server');
+// backend/src/utils/audit.js
+const { knex } = require('../db');
 
 const logAction = async (userId, action, entityType, entityId, details) => {
   await knex('audit_logs').insert({

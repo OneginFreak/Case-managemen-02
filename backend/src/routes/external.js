@@ -1,5 +1,6 @@
 const express = require('express');
-const { knex, logAction } = require('../server');
+const { knex, s3 } = require('../db');  // Updated import
+const { logAction } = require('../utils/audit');  // Updated import
 const router = express.Router();
 
 // Add external mapping

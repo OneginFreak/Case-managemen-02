@@ -6,8 +6,12 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: casedb
+    ports:
+          - "5432:5432"  
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
   backend:
     build: ./backend
     ports:
@@ -21,12 +25,20 @@ services:
       AWS_REGION: http://127.0.0.1:9000
       AWS_S3_BUCKET: nydems
       JWT_SECRET: your-jwt-secret
+    networks:
+      - app-network      
   frontend:
     build: ./frontend
     ports:
       - "80:80"
     depends_on:
       - backend
+    networks:
+      - app-network
 
 volumes:
   pgdata:
+
+networks:
+  app-network:
+    driver: bridge
