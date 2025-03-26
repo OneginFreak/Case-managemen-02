@@ -1,6 +1,8 @@
 const express = require('express');
-const { knex, logAction } = require('../server');
+//const { knex, logAction } = require('../server');
 const router = express.Router();
+const { knex } = require('../db');
+const { logAction } = require('../utils/audit');
 
 // List cases for user
 router.get('/', async (req, res) => {
@@ -14,7 +16,7 @@ router.get('/', async (req, res) => {
 // Create case
 router.post('/', async (req, res) => {
   const { title, description } = req.body;
-  const [newCase] = await knex('cases')  // Renamed 'case' to 'newCase'
+  const [newCase] = await knex('cases')
     .insert({ title, description, created_by: req.user.id })
     .returning('*');
   await knex('user_case_access').insert({

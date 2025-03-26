@@ -1,7 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { knex } = require('../server');
+const { knex } = require('../db');  // Import from db.js, not server.js
+const { logAction } = require('../utils/audit');
 const router = express.Router();
 
 router.post('/login', async (req, res) => {

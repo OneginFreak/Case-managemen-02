@@ -1,6 +1,11 @@
 {
-    "welcome": "Welcome",
-    "cases": "Cases",
-    "upload": "Upload",
-    "download": "Download"
-  }
+  "welcome": "Welcome",
+  "cases": "Cases",
+  "upload": "Upload",
+  "download": "Download",
+  "manage_users": "Manage Users",
+  "error": "Something went wrong",
+  "add_user": "Add User",
+  "remove_user": "Remove User",
+  "create_case": "Create Case"
+}

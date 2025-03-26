@@ -6,5 +6,6 @@
   "manage_users": "Administrer brukere",
   "error": "Noe gikk galt",
   "add_user": "Legg til bruker",
-  "remove_user": "Fjern bruker"
+  "remove_user": "Fjern bruker",
+  "create_case": "Opprett sak"
 }

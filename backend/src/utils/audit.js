@@ -1,4 +1,3 @@
-// backend/src/utils/audit.js
 const { knex } = require('../db');
 
 const logAction = async (userId, action, entityType, entityId, details) => {
